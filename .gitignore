@@ -46,3 +46,8 @@ plans/
 .pi/settings.json
 collect.sh
 packages/agent/docs/extensions/pi-server-artifact/index.md
+
+# Fork-local caches and scratch directories
+.npm-cache/
+.tmp/
+交接文档.md

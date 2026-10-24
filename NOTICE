@@ -1,0 +1,13 @@
+pi-personal
+===========
+
+This project is a fork and second development layer on top of pi
+(https://github.com/earendil-works/pi), pinned at upstream commit 136b87e,
+both MIT licensed. The upstream copyright and license are retained in LICENSE.
+
+The upstream runtime packages under packages/ (durable, ai, agent, chord,
+codemode, env, evals, mcp, telemetry, tui, coding-agent) are unmodified pi
+code and belong to their upstream authors.
+
+The personal layer added by this fork lives in packages/personal-agent
+(and, from M5 on, apps/personal-web).

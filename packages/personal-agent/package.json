@@ -1,0 +1,41 @@
+{
+	"name": "pi-personal-agent",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Personal assistant layer on pi: durable runtime, scheduler, CLI, and local console",
+	"type": "module",
+	"license": "MIT",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"source": "./src/index.ts",
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"default": "./dist/index.js"
+		}
+	},
+	"bin": {
+		"pi-personal": "./dist/cli.js"
+	},
+	"sideEffects": false,
+	"scripts": {
+		"clean": "shx rm -rf dist",
+		"build": "tsc -p tsconfig.build.json",
+		"test": "vitest --run"
+	},
+	"engines": {
+		"node": ">=22.19.0"
+	},
+	"dependencies": {
+		"@earendil-works/chord": "1.4.0",
+		"@earendil-works/pi-ai": "1.4.0",
+		"@earendil-works/pi-durable": "1.4.0",
+		"@hono/node-server": "2.1.5",
+		"hono": "4.13.13"
+	},
+	"devDependencies": {
+		"@types/node": "22.19.19",
+		"vitest": "4.1.12"
+	}
+}
