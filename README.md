@@ -1,6 +1,12 @@
-# pi-personal
+# pi-duet
 
-本机常驻的个人主动式助理：基于 MIT 许可的 [pi](https://github.com/earendil-works/pi) agent runtime 二次开发。关掉终端它仍在后台运行，按计划检查邮箱与日历，生成按重要性排序的每日简报，重要事项即时提醒，而发送邮件等对外动作必须先经过批准。
+> 基于 [pi](https://github.com/earendil-works/pi)，实现一个个人的 Claude Duet。
+
+## 项目介绍
+
+pi-duet 是一个**个人版 Claude Duet**：本机常驻的主动式助理。它像 Claude Duet 一样在后台持续观察已连接的数据源（邮箱、日历），主动整理事项、按时给出每日简报、必要时即时提醒，而发送邮件等对外动作必须先经用户批准。关掉终端它仍在运行，进程被强杀后自动恢复调度，机器重启后照常工作。
+
+Claude Duet 没有公开源码，本项目只复刻其公开的产品行为，不含、也未使用其任何代码。运行时底座完全来自 MIT 许可的 pi agent runtime（durable 持久化与崩溃恢复、多 Provider 模型层、agent loop），个人层代码集中在 `packages/personal-agent`，不修改任何上游包。
 
 ## 项目目标
 
@@ -16,7 +22,7 @@
 
 ## 与上游 pi 的关系
 
-本仓库 fork 自 `earendil-works/pi`（commit `136b87e`，MIT 许可，`upstream` remote 保留用于合并）。**不修改任何上游包**；个人层代码只放在 `packages/personal-agent`（及 M5 的 `apps/personal-web`）。上游版权与署名见 [LICENSE](LICENSE) 与 [NOTICE](NOTICE)。
+本仓库是 `earendil-works/pi`（commit `136b87e`，MIT 许可）的完整拷贝，`upstream` remote 保留用于合并上游。**不修改任何上游包**；个人层代码只放在 `packages/personal-agent`（及 M5 的 `apps/personal-web`）。上游版权与署名见 [LICENSE](LICENSE) 与 [NOTICE](NOTICE)。
 
 ```text
 呈现层   apps/personal-web        React 控制台（M5）

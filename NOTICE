@@ -1,7 +1,7 @@
 pi-personal
 ===========
 
-This project is a fork and second development layer on top of pi
+This project is a copy and second development layer on top of pi
 (https://github.com/earendil-works/pi), pinned at upstream commit 136b87e,
 both MIT licensed. The upstream copyright and license are retained in LICENSE.
 
