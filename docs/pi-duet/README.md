@@ -1,4 +1,4 @@
-# pi-personal
+# pi-duet
 
 Personal agent built as a second development layer on [pi](https://github.com/earendil-works/pi). The product behavior follows `spec.md`; the runtime is pi's durable agent harness.
 
@@ -27,10 +27,10 @@ Claude Duet has no public source. pi is MIT-licensed and provides the durable co
 ## Layout
 
 ```text
-packages/personal-agent/   # new package: harness bootstrap, tasks, CLI, web server
+packages/duet/   # new package: harness bootstrap, tasks, CLI, web server
 packages/durable/          # upstream, unchanged
 packages/ai/               # upstream, unchanged
-apps/personal-web/         # added in M5
+apps/duet-web/         # added in M5
 ```
 
 ## Rules

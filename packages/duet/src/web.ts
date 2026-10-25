@@ -6,7 +6,7 @@ import { streamSSE } from "hono/streaming";
 import { PersonalRuntimeDoc, PersonalSettingsDoc, verifyToken } from "./docs.ts";
 import { VERSION } from "./index.ts";
 
-const TOKEN_COOKIE = "pi_personal_token";
+const TOKEN_COOKIE = "pi_duet_token";
 
 export type ConsoleState = {
 	ok: boolean;
@@ -35,14 +35,14 @@ const PAGE_HTML = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>pi-personal</title>
+<title>pi-duet</title>
 <style>
 body { font-family: system-ui, sans-serif; margin: 2rem; }
 pre { background: #f4f4f4; padding: 1rem; border-radius: 6px; }
 </style>
 </head>
 <body>
-<h1>pi-personal</h1>
+<h1>pi-duet</h1>
 <p>Runtime state (live):</p>
 <pre id="state">loading…</pre>
 <script>

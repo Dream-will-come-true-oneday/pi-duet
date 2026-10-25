@@ -10,7 +10,7 @@ const dirs: string[] = [];
 const handles: PersonalAgentHandle[] = [];
 
 async function tempSetup(token: string): Promise<{ app: ReturnType<typeof createWebApp>; token: string }> {
-	const dataDir = await mkdtemp(join(tmpdir(), "personal-agent-"));
+	const dataDir = await mkdtemp(join(tmpdir(), "pi-duet-"));
 	dirs.push(dataDir);
 	const handle = await openPersonalAgent({ dataDir });
 	handles.push(handle);
@@ -64,16 +64,16 @@ describe("console auth", () => {
 		expect(res.status).toBe(302);
 		expect(res.headers.get("location")).toBe("/");
 		const cookie = res.headers.get("set-cookie") ?? "";
-		expect(cookie).toContain("pi_personal_token=");
+		expect(cookie).toContain("pi_duet_token=");
 		expect(cookie).toContain("HttpOnly");
 		expect(cookie).toContain("SameSite=Strict");
 
-		const cookieValue = /pi_personal_token=([^;]+)/.exec(cookie)?.[1];
+		const cookieValue = /pi_duet_token=([^;]+)/.exec(cookie)?.[1];
 		const page = await app.request("/", {
-			headers: { Cookie: `pi_personal_token=${cookieValue}` },
+			headers: { Cookie: `pi_duet_token=${cookieValue}` },
 		});
 		expect(page.status).toBe(200);
-		expect(await page.text()).toContain("pi-personal");
+		expect(await page.text()).toContain("pi-duet");
 	});
 });
 

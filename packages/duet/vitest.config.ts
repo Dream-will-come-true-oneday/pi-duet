@@ -38,7 +38,7 @@ function redirectSource(source: string): string | null {
 }
 
 const sourceRedirectPlugin: Plugin = {
-	name: "personal-agent-source-redirects",
+	name: "pi-duet-source-redirects",
 	enforce: "pre",
 	resolveId(source) {
 		return redirectSource(source);

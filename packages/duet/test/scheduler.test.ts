@@ -9,7 +9,7 @@ import { openPersonalAgent } from "../src/harness.ts";
 const dirs: string[] = [];
 
 async function tempDir(): Promise<string> {
-	const dir = await mkdtemp(join(tmpdir(), "personal-agent-"));
+	const dir = await mkdtemp(join(tmpdir(), "pi-duet-"));
 	dirs.push(dir);
 	return dir;
 }

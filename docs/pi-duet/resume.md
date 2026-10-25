@@ -17,14 +17,14 @@ Positioning: second development layer on the MIT-licensed pi agent runtime, not 
 
 | Metric | Target | Measured | How |
 |---|---|---|---|
-| Cold start to health | < 2 s | 1078 ms (2nd run 1155 ms), Node 26, Windows | `packages/personal-agent/scripts/m1-restart.mjs` |
-| Restart to next tick | < 2 intervals | 1068 ms < 2 × 1000 ms interval | kill/restart script |
-| Duplicate tick IDs | 0 | 0 (tick count continued 2 → 3 across SIGKILL) | state JSON |
-| Idle CPU | < 1% | 0.0000% (0 s CPU over 60 s sample, after one 60 s tick) | 60 s sample |
+| Cold start to health | < 2 s | 966 ms (re-measured after the pi-duet rename; pre-rename 1078/1155 ms), Node 26, Windows | `packages/duet/scripts/m1-restart.mjs` |
+| Restart to next tick | < 2 intervals | 1021 ms < 2 × 1000 ms interval | kill/restart script |
+| Duplicate tick IDs | 0 | 0 (tick count continued across SIGKILL) | state JSON |
+| Idle CPU | < 1% | 0.026% (60 s sample) | 60 s sample |
 | Unauthorized status | 401 | 401 | web test |
 | Authorized status | 200 | 200 | web test |
 
-M1 evidence detail: `modules/01-runtime/checklist.md` (2026-10-24). `npm run check`: all steps pass except the pre-existing upstream `check:entry-graphs` violation recorded before M1 existed.
+M1 evidence detail: `modules/01-runtime/checklist.md` (2026-10-24; re-measured 2026-10-25 after the pi-duet rename). `npm run check`: all steps pass except the pre-existing upstream `check:entry-graphs` violation recorded before M1 existed.
 
 ## Rules
 

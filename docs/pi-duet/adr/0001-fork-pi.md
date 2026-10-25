@@ -1,6 +1,6 @@
 # ADR 0001: Fork pi as the runtime base
 
-- Status: accepted
+- Status: accepted (amended 2026-10-25: the repository is a full copy rather than a GitHub fork, and the project is renamed to pi-duet — workspaces `packages/duet` and `apps/duet-web`, CLI `pi-duet`, data dir `~/.pi-duet`; the persisted `personal.*` doc/task identifiers keep the personal-layer naming)
 - Date: 2026-10-24
 - Upstream: `https://github.com/earendil-works/pi`, commit `136b87e`
 
@@ -23,8 +23,8 @@ pi does not provide permissions, email/calendar connectors, a proactive schedule
 
 Fork pi and add two workspaces:
 
-- `packages/personal-agent`: docs, scheduler task, connectors, approval task, tools, CLI, and HTTP server;
-- `apps/personal-web`: React console (M5).
+- `packages/duet`: docs, scheduler task, connectors, approval task, tools, CLI, and HTTP server;
+- `apps/duet-web`: React console (M5).
 
 Upstream packages are not modified. The upstream commit is pinned; `upstream` stays as a remote for later merges.
 

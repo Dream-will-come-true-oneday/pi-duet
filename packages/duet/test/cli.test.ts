@@ -12,7 +12,7 @@ const dirs: string[] = [];
 const handles: PersonalAgentHandle[] = [];
 
 async function tempDir(): Promise<string> {
-	const dir = await mkdtemp(join(tmpdir(), "personal-agent-"));
+	const dir = await mkdtemp(join(tmpdir(), "pi-duet-"));
 	dirs.push(dir);
 	return dir;
 }

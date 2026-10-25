@@ -3,7 +3,7 @@
 // zero lost or duplicate ticks. Prints a single JSON line with the measured
 // numbers and exits non-zero on any assertion failure.
 //
-// Usage (from packages/personal-agent):
+// Usage (from packages/duet):
 //   node --conditions=source --import ./scripts/source-resolve.mjs scripts/m1-restart.mjs
 // Set M1_KEEP_DATA=1 to keep the temp data directory for inspection.
 import { spawn } from "node:child_process";

@@ -12,7 +12,7 @@ import { createWebApp } from "./web.ts";
 export const DEFAULT_PORT = 8765;
 
 export function defaultDataDir(): string {
-	return join(homedir(), ".pi-personal");
+	return join(homedir(), ".pi-duet");
 }
 
 const LOOPBACK_HOSTS = new Set(["127.0.0.1", "localhost", "::1"]);
@@ -57,7 +57,7 @@ export type StatusReport = {
 	tokenConfigured: boolean;
 };
 
-/** Read-only report for `pi-personal status`. */
+/** Read-only report for `pi-duet status`. */
 export async function statusCommand(options: { dataDir: string }): Promise<StatusReport> {
 	const handle = await openPersonalAgent({ dataDir: options.dataDir, readOnly: true });
 	try {
@@ -112,7 +112,7 @@ export async function serveCommand(options: { dataDir: string; port?: number; ho
 	const settings = await handle.harness.snapshot(PersonalSettingsDoc, handle.root.id, BACKGROUND_CONTEXT);
 	if ((settings?.tokenHash ?? "") === "") {
 		await handle.close();
-		throw new Error(`No console token configured; run "pi-personal init --data-dir ${options.dataDir}" first`);
+		throw new Error(`No console token configured; run "pi-duet init --data-dir ${options.dataDir}" first`);
 	}
 	handle.harness.resume();
 	const app = createWebApp({
@@ -196,7 +196,7 @@ export async function runCli(argv: string[]): Promise<number> {
 		}
 		case "token": {
 			if (sub !== "reset") {
-				process.stderr.write("usage: pi-personal token reset [--data-dir <dir>]\n");
+				process.stderr.write("usage: pi-duet token reset [--data-dir <dir>]\n");
 				return 2;
 			}
 			const { token } = await tokenResetCommand({ dataDir: parsed.dataDir });
@@ -224,7 +224,7 @@ export async function runCli(argv: string[]): Promise<number> {
 		}
 		default:
 			process.stderr.write(
-				`pi-personal ${VERSION}\nusage: pi-personal <init|serve|status|token reset> [--data-dir <dir>] [--port <n>] [--host <loopback>]\n`,
+				`pi-duet ${VERSION}\nusage: pi-duet <init|serve|status|token reset> [--data-dir <dir>] [--port <n>] [--host <loopback>]\n`,
 			);
 			return 2;
 	}

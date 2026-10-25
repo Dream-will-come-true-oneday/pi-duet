@@ -9,16 +9,16 @@ M1 is the runtime substrate. It does not connect email, call models, or approve 
 ## User-visible behavior
 
 ```text
-pi-personal init      create ~/.pi-personal, token, SQLite store, default docs
-pi-personal serve     start scheduler and HTTP server on 127.0.0.1:8765
-pi-personal status    print tick count, next tick, data dir, token state
+pi-duet init      create ~/.pi-duet, token, SQLite store, default docs
+pi-duet serve     start scheduler and HTTP server on 127.0.0.1:8765
+pi-duet status    print tick count, next tick, data dir, token state
 ```
 
 Opening the console without a token returns 401. Opening `/?token=<token>` sets an HttpOnly cookie and shows the runtime state.
 
 ## Scope
 
-- Fork/workspace scaffold under `packages/personal-agent`.
+- Fork/workspace scaffold under `packages/duet`.
 - Durable docs: `personal.settings`, `personal.runtime`, `personal.audit`.
 - Scheduler task `personal.scheduler` with a crash-safe tick.
 - CLI: `init`, `serve`, `status`, `token reset`.

@@ -14,17 +14,17 @@
 
 ## M1-T02: Package scaffold
 
-**Files:** create `packages/personal-agent/package.json`, `tsconfig.build.json`, `vitest.config.ts`, `src/index.ts`
+**Files:** create `packages/duet/package.json`, `tsconfig.build.json`, `vitest.config.ts`, `src/index.ts`
 **Depends:** M1-T01
 
 **Steps:**
 1. Add the package with the pinned deps from `plan.md`; no `any`, no extra deps.
-2. Point `bin.pi-personal` at `dist/cli.js`.
+2. Point `bin.pi-duet` at `dist/cli.js`.
 3. `tsconfig.build.json` extends `../../tsconfig.base.json`, emits `dist`, maps durable/ai dist types.
 4. `vitest.config.ts` resolves durable/ai/telemetry to source with `conditions: ["source"]`.
 5. `src/index.ts` exports the package version only for now.
 
-**Verify:** run `npm install --ignore-scripts --no-audit --no-fund` with the workspace-local cache; then `node -e "console.log(require('./packages/personal-agent/package.json').name)"` prints `pi-personal-agent`.
+**Verify:** run `npm install --ignore-scripts --no-audit --no-fund` with the workspace-local cache; then `node -e "console.log(require('./packages/duet/package.json').name)"` prints `pi-duet`.
 
 ## M1-T03: Durable docs
 

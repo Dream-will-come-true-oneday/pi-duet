@@ -1,5 +1,5 @@
 {
-	"name": "pi-personal-agent",
+	"name": "pi-duet",
 	"version": "0.1.0",
 	"private": true,
 	"description": "Personal assistant layer on pi: durable runtime, scheduler, CLI, and local console",
@@ -16,7 +16,7 @@
 		}
 	},
 	"bin": {
-		"pi-personal": "./dist/cli.js"
+		"pi-duet": "./dist/cli.js"
 	},
 	"sideEffects": false,
 	"scripts": {

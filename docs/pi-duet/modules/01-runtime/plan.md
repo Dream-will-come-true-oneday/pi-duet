@@ -3,7 +3,7 @@
 ## Placement
 
 ```text
-packages/personal-agent/
+packages/duet/
 ├── package.json
 ├── tsconfig.build.json
 ├── vitest.config.ts
@@ -30,8 +30,8 @@ No upstream package is edited. `packages/*` is already a workspace glob, so addi
 
 `package.json`:
 
-- name `pi-personal-agent`, private, type module, engines `node >=22.19`;
-- bin `pi-personal` -> `dist/cli.js`;
+- name `pi-duet`, private, type module, engines `node >=22.19`;
+- bin `pi-duet` -> `dist/cli.js`;
 - deps pinned exactly: `@earendil-works/pi-durable@1.4.0`, `@earendil-works/pi-ai@1.4.0`, `hono@4.13.13`, `@hono/node-server@2.1.5`;
 - devDeps `vitest@4.1.12`, `@types/node@22.19.19`;
 - scripts `build: tsc -p tsconfig.build.json`, `test: vitest --run`.
@@ -127,12 +127,12 @@ No model provider is configured in M1. A generation request would fail; M1 never
 
 `src/cli.ts` uses `node:util` `parseArgs`; no CLI dependency.
 
-- `pi-personal init [--data-dir]`: create token (`randomBytes(32).toString("base64url")`), open harness, write `sha256(token)` into settings, close, print the token and URL once.
-- `pi-personal serve [--data-dir] [--port]`: open harness, create app, listen on `127.0.0.1`, close on SIGINT/SIGTERM.
-- `pi-personal status [--data-dir]`: open read-only, print tick count, last/next tick, scheduler task, token configured, DB path.
-- `pi-personal token reset [--data-dir]`: generate and store a new hash, print the token once.
+- `pi-duet init [--data-dir]`: create token (`randomBytes(32).toString("base64url")`), open harness, write `sha256(token)` into settings, close, print the token and URL once.
+- `pi-duet serve [--data-dir] [--port]`: open harness, create app, listen on `127.0.0.1`, close on SIGINT/SIGTERM.
+- `pi-duet status [--data-dir]`: open read-only, print tick count, last/next tick, scheduler task, token configured, DB path.
+- `pi-duet token reset [--data-dir]`: generate and store a new hash, print the token once.
 
-Default data directory: `~/.pi-personal`; default port `8765`. Non-loopback host is rejected.
+Default data directory: `~/.pi-duet`; default port `8765`. Non-loopback host is rejected.
 
 ## HTTP
 
@@ -147,7 +147,7 @@ Routes:
 
 Auth middleware:
 
-- accepts `Authorization: Bearer <token>`, cookie `pi_personal_token`, or `?token=`;
+- accepts `Authorization: Bearer <token>`, cookie `pi_duet_token`, or `?token=`;
 - compares SHA-256 digests with `timingSafeEqual`;
 - `?token=` sets an HttpOnly, SameSite=Strict cookie and redirects to `/`;
 - missing or wrong token -> 401 JSON.
